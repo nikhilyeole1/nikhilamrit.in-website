@@ -1,56 +1,230 @@
-## Getting Started
+# Astro Modern Personal Website
 
-We provide a sample app using HTML that you can deploy on App Platform. These steps will get this sample application running for you using App Platform.
+![Astro Modern Personal Website](public/social_img.png)
 
-**Note: Following these steps may result in charges for the use of DigitalOcean services.**
+Modern Personal Website Template with Project Section, CV Section, Paginated Blog, RSS Feed, SEO Friendly, Visual themes and Responsive Desing for Astro framework.
 
-### Requirements
+## Demo
 
-* You need a DigitalOcean account. If you don't already have one, you can sign up at https://cloud.digitalocean.com/registrations/new.
+View a live demo of the [Astro Modern Personal Website](https://astro-modern-personal-website.netlify.app/)
 
-## Deploying the App
 
-Click this button to deploy the app to the DigitalOcean App Platform. If you are not logged in, you will be prompted to log in with your DigitalOcean account.
+## Installation
 
-[![Deploy to DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/digitalocean/sample-html/tree/main)
+Run the following command in your terminal
 
-Using this button disables the ability to automatically re-deploy your app when pushing to a branch or tag in your repository as you are using this repo directly.
+``` bash
+npm install
+```
 
-If you want to automatically re-deploy your app, [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) the GitHub repository to your account so that you have a copy of it stored to the cloud. Click the **Fork** button in the GitHub repository and follow the on-screen instructions.
+Once the packages are installed you are ready to run astro. Astro comes with a built-in development server that has everything you need for project development. The astro dev command will start the local development server so that you can see your new website in action for the very first time.
 
-After forking the repo, you should now be viewing this README in your own GitHub org (e.g. `https://github.com/<your-org>/sample-html`). To deploy the new repo, visit https://cloud.digitalocean.com/apps and click **Create App**. Then, click **GitHub**, select the repository you created and select the `main` branch. App Platform will inspect the code, automatically detect the kind of component to create, and use the correct buildpack to create and deploy a container.
+``` bash
+npm run dev
+```
 
-After clicking the **Deploy to DigitalOcean** button or completing the instructions above to fork the repo, follow these steps:
+## Tech Stack
 
-1. Configure the app such as specifying HTTP routes, environment variables or adding a database.
-1. Provide a name for your app and select which region you want to deploy your app to and click **Next**. The closest region to you should be selected by default. All App Platform apps are routed through a global CDN. So this will not affect your app performance, unless it needs to talk to external services.
-1. On the following screen, leave all the fields as they are and click **Next**.
-1. Confirm your **Plan** settings and how many containers you want to launch and click **Launch Basic/Pro App**.
-1. You should see a "Building..." progress indicator. You can click **View Logs** to see more details of the build.
-1. It can take a few minutes for the build to finish, but you can follow the progress in the **Deployments** tab.
-1. Once the build completes successfully, click the **Live App** link in the header and you should see your running application in a new tab, displaying the home page.
+- [Astro](https://astro.build)
+- [tailwindcss](https://tailwindcss.com/)
+- [DaisyUI](https://daisyui.com/)
 
-### Making Changes to Your App
 
-If you followed the steps to fork the repo and used your own copy when deploying the app, you can push changes to your fork and see App Platform automatically re-deploy the update to your app. During these automatic deployments, your application will never pause or stop serving request because App Platform offers zero-downtime deployments.
 
-Here's an example code change you can make for this app:
+## Project Strucutre
 
-1. Edit code within the repository
-1. Commit the change to the `main` branch. Normally it's a better practice to create a new branch for your change and then merge that branch to `main` after review, but for this demo you can commit to the `main` branch directly.
-1. Visit https://cloud.digitalocean.com/apps and navigate to your sample app.
-1. You should see a "Building..." progress indicator, just like when you first created the app.
-1. Once the build completes successfully, click the **Live App** link in the header and you should see your updated application running. You may need to force refresh the page in your browser (e.g. using **Shift+Reload**).
+``` php
+├── src/
+│   ├── components/
+│   │   ├── cs/
+│   │   │   ├── TimeLine
+│   │   ├── BaseHead.astro
+│   │   ├── Card.astro
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   └── HorizontalCard.jsx
+│   │   └── SideBar.jsx
+│   ├── layouts/
+│   │   └── BaseLayout.astro
+│   │   └── PostLayout.astro
+│   └── pages/
+│   │   ├── blog/
+│   │   │   ├── [page].astro
+│   │   │   ├── post1.md
+│   │   │   ├── post2.md
+│   │   │   └── post3.md
+│   │   └── cv.astro
+│   │   └── index.astro
+│   │   └── projects.astro
+│   │   └── rss.xml.js
+│   └── styles/
+│       └── global.css
+├── public/
+│   ├── favicon.svg
+│   └── social-image.png
+│   └── sprofile.jpg
+│   └── social_img.webp
+├── astro.config.mjs
+├── tailwind.config.cjs
+├── package.json
+└── tsconfig.json
+```
 
-### Learn More
+### Components usage
 
-You can learn more about the App Platform and how to manage and update your application at https://www.digitalocean.com/docs/app-platform/.
+#### Layout Components
 
-## Deleting the App
+The `BaseHead`, `Footer`, `Header` and `SideBar` components are already included in the layout sistem. To change the website content you can edit the content of this componenets.
 
-When you no longer need this sample application running live, you can delete it by following these steps:
-1. Visit the Apps control panel at https://cloud.digitalocean.com/apps.
-2. Navigate to the sample app.
-3. In the **Settings** tab, click **Destroy**.
+##### SideBar
 
-**Note: If you do not delete your app, charges for using DigitalOcean services will continue to accrue.**
+In the Sidebar you can change the links to all your website pages.
+
+You can change your avatar shape using [mask classes](https://daisyui.com/components/mask/).
+
+The used social-icons are SVG form [BoxIcons](https://boxicons.com/) pack.
+
+#### TimeLine
+
+The timeline components are used to conform the CV.
+
+``` html
+ <div class="time-line-container">
+    <TimeLineElement
+      title="Element Title"
+      subtitle="Subtitle"
+      desc="Description"
+    />
+    ...
+</div>
+```
+
+#### Card & HorizontalCard
+``` html
+   <HorizontalCard
+      title="Card Title"
+      img="imge_url"
+      desc="Description"
+      url="Link URL"
+      target="Optional link target (_blank default)"
+      badge="Optional badge"
+      tags={['Array','of','tags']}
+    />
+```
+
+#### HorizontalCard Shop Item
+
+This compoenet is already included in the Store layout of the template. In case you want to use it in other place this are the props.
+``` html
+   <HorizontalShopItem
+        title= "Item Title"
+        img= "imge_url"
+        desc= "Item description"
+        pricing= "current_price"
+        oldPricing= "old_price"
+        checkoutUrl= "external store checkout url"
+        badge="Optional badge"
+        details= true # show or hide details btn (default is true)
+        url= "item details url"
+        custom_link= "Custom link url"
+        custom_link_label= "Cutom link btn label" target="Optional link target (_self default)"
+      />
+```
+
+### Layouts
+
+Include `BaseLayout` in each page you add and `PostLayout` to your post pages.
+
+### Pages
+
+#### Blog
+
+Add your `md` blog post in the `/pages/blog/` folder.
+
+##### [page].astro
+
+The `[page].astro` is the route to work with the paginated post list. You can change there the number of items listed for each page and the pagination button labels.
+
+##### Post format
+Add code with this format in the top of each post file.
+```
+---
+layout: "../../layouts/PostLayout.astro"
+title: "Post Title"
+description: "Description"
+pubDate: "Post date format(Sep 10 2022)"
+heroImage: "Post Hero Image URL"
+---
+```
+#### Shop
+
+Add your `md` item in the `/pages/shop/` folder.
+
+##### [page].astro
+
+The `[page].astro` is the route to work with the paginated item list. You can change there the number of items listed for each page and the pagination button labels. The shop will render all `.md` files you incle inside this folder.
+
+##### Item format
+Add code with this format in the top of each item file.
+``` js
+---
+layout: "../../layouts/StoreItemLayout.astro"
+title: "Demo Item 1"
+description: "Item description"
+heroImage: "Item img url"
+details: true // show or hide details btn
+custom_link_label: "Custom btn link label"
+custom_link: "Custom btn link"
+pubDate: "Sep 15 2022"
+pricing: "$15"
+oldPricing: "$25.5"
+badge: "Featured"
+checkoutUrl: "https://checkouturl.com/"
+---
+```
+#### Static pages
+
+The other pages inlcuded in the template are static pages. The `index` page belong to the root page. You can add your pages directly in the `/pages` folder and then add a link to that pages in the `sidebar` component.
+
+Feel free to modify the content included in the pages that the template contains or add the ones you need.
+
+### Theming
+
+For change the template theme change the `data-theme` atribute of the `<html>` tag in `BaseLayout.astro` file.
+
+You can chose among 30 themes available or create your custom theme. See themes available [here](https://daisyui.com/docs/themes/).
+
+## Sitemap
+
+The Sitemap is generated automatically when you build your website in the root of the domain. Please update the `robots.txt` file in the public folder with your site name URL for the Sitemap.
+
+## Deploy
+
+You can deploy your site on your favorite static hosting service such as Vercel, Netlify, GitHub Pages, etc.
+
+The configuration for the deployment varies depending on the platform where you are going to do it. See the [official Astro information](https://docs.astro.build/en/guides/deploy/) to deploy your website.
+
+> **⚠️ CAUTION** </br>
+> The Blog pagination of this template is implemented using dynamic route parameters in its filename and for now this format is incompatible with SSR deploy configs, so please use the default static deploy options for your deployments.
+
+## Contributing
+
+Suggestions and pull requests are welcomed! Feel free to open a discussion or an issue for a new feature request or bug.
+
+One of the best ways of contribute is to grab a [bug report o feature suggestion](https://github.com/manuelernestog/astro-modern-personal-website/issues) that has been marked `accepted` and dig in.
+
+Please be wary of working on issues *not* marked as `accepted`. Just because someone has created an issue doesn't mean we'll accept a pull request for it.
+
+## License
+
+Astro Modern Personal Website is licensed under the MIT license — see the [LICENSE](https://github.com/manuelernestog/astro-modern-personal-website/blob/main/LICENSE) file for details.
+
+## Contributors
+
+<a href="https://github.com/manuelernestog/astro-modern-personal-website/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=manuelernestog/astro-modern-personal-website" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
+
+
